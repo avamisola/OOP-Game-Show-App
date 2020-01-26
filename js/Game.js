@@ -6,16 +6,20 @@ class Game {
     constructor() {
         this.missed = 0;
         this.phrases = [
-            new Phrase('Walking on Sunshine'),
-            new Phrase('Genie in a Bottle'),
-            new Phrase('What a Wonderful World'),
-            new Phrase('Singing in the Rain'),
-            new Phrase('Chicken Noodle Soup')
+            new Phrase('Hello world'),
+            new Phrase('How are you'),
+            new Phrase('Thank you'),
+            new Phrase('No problem'),
+            new Phrase('Good luck')
         ];
         this.activePhrase = null;
     }
     startGame() {
-    
+        const div = document.querySelector("#overlay");
+        div.style.display = "none";
+        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
+
     }
     getRandomPhrase() {
         return this.phrases[Math.floor(Math.random() * this.phrases.length)];
