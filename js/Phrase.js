@@ -15,17 +15,26 @@ class Phrase {
             const letter = this.phrase[i]
             if (regexLetter.test(letter)) {
                 li.className = `hide letter ${letter}`;
+                li.innerText = letter;
                 ul.appendChild(li);
             } else if (regexSpace.test(letter)) {
-                li.className = `space`;
+                li.className = "space";
+                li.innerText = letter;
                 ul.appendChild(li);
             }
-        };
+        }
     }
-    checkLetter() {
-        
+    checkLetter(letter) {
+        return this.phrase.includes(letter);
     }
-    showMatchedLetter() {
-        
+    showMatchedLetter(letter) {
+        const letters = document.querySelectorAll(".letter");
+        for (let i = 0; i < letters.length; i++) {
+            if (letter === letters[i].innerText) {
+                letters[i].classList.add("show");
+                letters[i].classList.remove("hide");
+            }
+        }
+        return letters;
     }
 }
