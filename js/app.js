@@ -2,10 +2,14 @@
  * Project 4 - OOP Game App
  * app.js */
 
+//create game object
+let game = new Game();
+
 //click button to start new game
-const game = new Game();
 const startButton = document.querySelector("#btn__reset");
 startButton.addEventListener("click", (e) => {
+    game = new Game();
+    game.resetGame();
     game.startGame();
 });
 
@@ -13,6 +17,6 @@ startButton.addEventListener("click", (e) => {
 const keyButtons = document.querySelectorAll(".key");
 keyButtons.forEach(key => {
     key.addEventListener("click", (e) => {
-        console.log("ok")
+        game.handleInteraction(e.target);
     });
 });

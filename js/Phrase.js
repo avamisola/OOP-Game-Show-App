@@ -3,9 +3,11 @@
  * Phrase.js */
 
 class Phrase {
+    //convert phrase to lowercase
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
     }
+    //convert phrase to html list
     addPhraseToDisplay() {
         const regexLetter = /[\w]/
         const regexSpace = /[\s]/
@@ -24,9 +26,11 @@ class Phrase {
             }
         }
     }
+    //check if letter within phrase
     checkLetter(letter) {
         return this.phrase.includes(letter);
     }
+    //show letter if correctly picked
     showMatchedLetter(letter) {
         const letters = document.querySelectorAll(".letter");
         for (let i = 0; i < letters.length; i++) {
